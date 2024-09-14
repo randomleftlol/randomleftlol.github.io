@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Left Lol</title>
+    <title>loading...</title> <!-- Initial title -->
     <style>
         :root {
-        --background: black;
-        --text: white;
+            --background: black;
+            --text: white;
         }
-
 
         @font-face {
             font-family: 'MagicNight';
@@ -154,7 +153,6 @@
             display: flex;
             column-gap: 20px;
             justify-content: space-between;
-            
         }
 
         .description {
@@ -210,7 +208,7 @@
         -->
         <video id="background" class="wallpaper" playsinline preload muted loop>
             <source src="./sources/ocean.mp4" type="video/mp4">
-          </video>
+        </video>
     </div>
 
     <img id="image" src="sources/image.png" alt="Image">
@@ -220,10 +218,30 @@
     </div>
     <audio id="audio" src="sources/sungrazer cascade - lone.mp3"></audio>
     <script>
+        // Array of titles to cycle through
+        const titles = [
+            '@',
+            '@@',
+            '@@@',
+            '@@@@'
+        ];
+
+        let currentIndex = 0;
+
+        // Function to update the document title
+        function updateTitle() {
+            document.title = titles[currentIndex];
+            currentIndex = (currentIndex + 1) % titles.length; // Move to the next title
+        }
+
+        // Change the title every 1 second (1000 milliseconds)
+        setInterval(updateTitle, 1000);
+
+        // Existing JavaScript for handling other actions
         var descriptionContent = document.getElementById('description-content');
         var background = document.getElementById('background');
-        descriptionContent.classList.add('hidden')
-        background.classList.add('hidden')
+        descriptionContent.classList.add('hidden');
+        background.classList.add('hidden');
 
         document.getElementById('text-container').addEventListener('click', function () {
             var textContainer = document.getElementById('text-container');
@@ -237,7 +255,7 @@
 
             audio.play();
             setTimeout(function () {
-                background.play()
+                background.play();
                 textContent.textContent = 'randomleft.lol';
                 textContainer.classList.remove('hidden');
                 descriptionContent.classList.remove('hidden');
