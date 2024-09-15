@@ -4,18 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Left Lol</title>
+    <title>@</title>
     <style>
         :root {
-        --background: black;
-        --text: white;
+            --background: black;
+            --text: white;
         }
-
 
         @font-face {
             font-family: 'MagicNight';
             src: url('fonts/gg sans Medium.ttf') format('truetype');
-            /* Correct path to the font file */
             font-weight: normal;
             font-style: normal;
         }
@@ -29,9 +27,7 @@
             justify-content: center;
             color: var(--text) !important;
             font-family: 'MagicNight', Arial, sans-serif;
-            /* Apply custom font */
             overflow: hidden;
-            /* Prevent scrollbars */
         }
 
         .text {
@@ -63,27 +59,20 @@
         #stickman {
             position: absolute;
             right: 20px;
-            /* Move away from the edge */
             bottom: 60px;
-            /* Move away from the bottom edge */
             width: 200px;
-            /* Medium size */
             height: auto;
             opacity: 0;
-            /* Initially hidden */
             transition: opacity 0.5s;
-            /* Fade-in transition */
         }
 
         #stickman.show {
             opacity: 1;
-            /* Fade in by changing opacity */
         }
 
         #links-container {
             position: absolute;
             bottom: 50px;
-            /* Raised from the bottom */
             text-align: center;
         }
 
@@ -91,55 +80,42 @@
         #youtube-link {
             font-size: 18px;
             opacity: 0;
-            /* Initially hidden */
             transition: opacity 0.5s, filter 0.3s;
-            /* Fade-in and blur transition */
             text-decoration: none;
-            /* Remove underline */
             font-family: 'MagicNight', Arial, sans-serif;
-            /* Apply custom font */
             display: block;
         }
 
         #discord-link {
             margin-bottom: 5px;
-            /* Space between Discord and YouTube links */
         }
 
         #discord-link:hover,
         #youtube-link:hover {
             filter: blur(2px);
-            /* Blur effect on hover */
         }
 
         #discord-link.show,
         #youtube-link.show {
             opacity: 1;
-            /* Show link */
         }
 
         #image {
             position: absolute;
             top: 5000px;
-            /* Position above the links */
             left: 58%;
             transform: translateX(-50%);
             width: 115px;
-            /* Adjust size as needed */
             opacity: 0;
-            /* Initially hidden */
             transition: opacity 1s;
-            /* Fade-in effect */
         }
 
         #image.show {
             opacity: 1;
-            /* Show image */
         }
 
         #text-container.show {
             transition: opacity 1s;
-            /* Fade-in effect */
             background: rgba(0, 0, 0, 0.25) !important;
             padding: 25px;
             border-radius: 25px;
@@ -149,12 +125,10 @@
 
         #card {
             transition: opacity 1s;
-            /* Fade-in effect */
             align-items: center;
             display: flex;
             column-gap: 20px;
             justify-content: space-between;
-            
         }
 
         .description {
@@ -173,7 +147,6 @@
 
         .wallpaper {
             opacity: 0;
-            /* Initially hidden */
             transition: opacity 0.5s, filter 0.3s;
             position: fixed;
             left: 0%;
@@ -205,12 +178,9 @@
     </div>
 
     <div id="wallholder" class="wallholder">
-        <!-- tis looked so cool 😭 ~ cats
-        <img id="background" class="wallpaper" src="sources/vaporwaver.gif" alt="Background">
-        -->
         <video id="background" class="wallpaper" playsinline preload muted loop>
             <source src="./sources/ocean.mp4" type="video/mp4">
-          </video>
+        </video>
     </div>
 
     <img id="image" src="sources/image.png" alt="Image">
@@ -220,6 +190,15 @@
     </div>
     <audio id="audio" src="sources/sungrazer cascade - lone.mp3"></audio>
     <script>
+        var titleState = false;
+        
+        function toggleTitle() {
+            document.title = titleState ? '@' : '@@';
+            titleState = !titleState;
+        }
+        
+        setInterval(toggleTitle, 1000);
+
         var descriptionContent = document.getElementById('description-content');
         var background = document.getElementById('background');
         descriptionContent.classList.add('hidden')
@@ -246,10 +225,10 @@
                 textContainer.classList.add('show');
                 background.classList.add('show');
                 pfp.classList.add('show');
-                discordLink.classList.add('show'); // Show the Discord link
-                youtubeLink.classList.add('show'); // Show the YouTube link
-                image.classList.add('show'); // Show the image
-            }, 250); // Delay for fade out transition
+                discordLink.classList.add('show');
+                youtubeLink.classList.add('show');
+                image.classList.add('show');
+            }, 250);
         });
     </script>
 </body>
